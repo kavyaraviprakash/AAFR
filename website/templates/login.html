@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="extend-form">
+    <h2 style="color:white;">Log In</h2>
+    <form style="float:left; color:black !important; padding:5px; margin-bottom:10%; background:white; border-radius:5px;border:6px black;" method="post">
+    {% csrf_token %}
+    {{ info }}
+    {{ form.as_p }}
+        <div class="d-flex justify-content-center links">
+             <button type="submit" class="btn btn-primary">Submit</button>
+
+            <a href="{% url 'password_Reset_form' %}" class="btn btn-primary">
+                Forgot Password</a>
+
+
+        </div>
+    </form><br><br>
+</div>
+{% endblock %}

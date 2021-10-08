@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <name style="color:white"><h1>Edit</h1></name>
+    <center>
+ <form method="POST" class="custom-form">{% csrf_token %}
+        {{ form.as_p }}
+
+            <button type="submit"class="save btn btn-default">Update</button>
+        </form>
+
+    </center>
+{% endblock %}

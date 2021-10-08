@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+
+
+    {% block content %}
+<center>
+
+    <div class="clearfix extend-form" style="padding:0% 0% 2% 10%;display:block;">
+
+	<a button type="button" class="btn btn-info" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+
+    <div style="color:black; margin-top:100px; margin-left:2%">
+     {{ calendar }}
+     </div>
+</div>
+
+
+
+  </div>
+    </div>
+        </center>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="extend-form" style="padding-top:0px;">
+        <h2 style="color:white;">Edit Profile</h2>
+        <form style="float:left; color:black !important; padding:30px; margin-bottom:10%; background:white; border-radius:5px;border:6px black;" method="post">
+            {% csrf_token %}
+            <div class="formel">
+                <table style="border:2px solid black">
+                    <tr>
+                        <td>Username: </td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>{{ form.email }}</td> 
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td>{{ form.address }}</td> 
+                    </tr>
+                    <tr>
+                        <td>City: </td>
+                        <td>{{ form.city }}</td> 
+                    </tr>
+                    <tr>
+                        <td>State: </td>
+                        <td>{{ form.state }}</td> 
+                    </tr>
+                    <tr>
+                        <td>ZIP: </td>
+                        <td>{{ form.zipcode }}</td> 
+                    </tr>
+                    <tr>
+                        <td>Phone Number: </td>
+                        <td>{{ form.phone_number }}</td> 
+                    </tr>
+                </table>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form><br><br>
+    </div>
+{% endblock %}

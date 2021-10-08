@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Store</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'website/css/arrow-jumbotron.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+{#            <li class="nav-item">#}
+{#              <a class="nav-link active" href="{% url 'renters_homepage' %}">Home <span class="sr-only">(current)</span></a>#}
+{#            </li>#}
+              <div class="full">
+                           <div class="logo">
+                              <a href="{% url 'home' %}"><img src="{% static 'website/images/logo.png'%}" alt="AAFR Logo" style="border: 2px black solid; width:210px;" ;/></a>
+                           </div>
+        </nav>
+        <h3 class="text-muted">Albuquerque Athletic Field Reservation</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">Payment Sucessful !!!</h1>
+        <p class="lead">Your support helps us to fulfill dream of building AAFR Fields in Albuquerque!!</p>
+        <a href="{% url 'renters_homepage' %}" id="buy_now_btn" class="btn btn-primary">HOME</a>
+      </div>

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+{% block content %}
+
+
+
+                   
+
+<div class="extend-form">
+   {% if user.is_authenticated %}
+
+   <h2 class="top-menu">Hello {{ user.username }}!
+       <br>
+   Please choose from below options.</h2>
+
+
+{% endif %}
+                   <div class="row">
+                       <div class="col-md-3">
+                           <div class="thumbnail">
+                               <div class="thumbnail-heading">
+                                   <h3>Find a Park</h3>
+                               </div>
+                               <img src="{% static 'website/images/find a park.png'%}"alt="park"/>
+
+                               <div class="caption">
+
+                                  <a class="btn btn-primary" href="{% url 'park' %}"><span class="glyphicon glyphicon"></span>Find a Park</a>
+
+                               </div>
+                           </div>
+                       </div>
+<div class="row">
+                       <div class="col-md-3">
+                           <div class="thumbnail">
+                               <div class="thumbnail-heading">
+                                   <h3>Facilities</h3>
+                               </div>
+                               <img src="{% static 'website/images/facilities.png'%}"alt="facilities"/>
+
+                               <div class="caption">
+
+                                  <a class="btn btn-primary" href="{% url 'property_list' %}"><span class="glyphicon glyphicon"></span>Facilities</a>
+
+                               </div>
+                           </div>
+                       </div>
+<div class="row">
+                       <div class="col-md-3">
+                           <div class="thumbnail">
+                               <div class="thumbnail-heading">
+                                   <h3>Upcoming Events</h3>
+                               </div>
+                               <img src="{% static 'website/images/Events.png'%}"alt="upcoming events"/>
+
+                               <div class="caption">
+
+                                  <a class="btn btn-primary" href="{% url 'calendar' %}"><span class="glyphicon glyphicon"></span>Events</a>
+
+                               </div>
+                           </div>
+                       </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+{% endblock %}

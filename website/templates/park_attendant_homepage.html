@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+{% block content %}
+
+
+
+
+
+<div class="extend-form">
+   {% if user.is_authenticated %}
+       <center>
+
+       <h2 class="top-menu">Hello {{ user.username }}!</h2>
+       </center>
+
+
+{% endif %}
+
+
+
+<div class="review">
+
+
+
+                               <img src="{% static 'website/images/Attandant.png'%}"alt="park"/>
+
+
+
+<div class="buttons-container">
+
+                                  <a class="btn btn-primary" href="{% url 'review' %}"><span class="glyphicon glyphicon"></span>View List</a>
+                                   <a class="btn btn-primary" href="{% url 'Addreview' %}"><span class="glyphicon glyphicon"></span>Add Comment</a>
+
+                               </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+<head> <script src="https://js.stripe.com/v3/"></script> </head>
+{% block content %}
+    {% for properties in properties %}
+
+<div class="property-img-container">
+
+        <center>
+
+<p style="background-color:#ffcccb;">{{message}}</p>
+            <img src="{% if properties.image %}{{ properties.image.url }}"width="600" height="500"{% else %}{% static "website/images/no_image.png" %}{% endif %}">
+<br>
+            <h5> <br><strong>ID: {{ properties.Property_id}}<br>
+                Name    :          {{ properties.Property_Name}}<br>
+
+
+
+            Description     :          {{ properties.Description }}<br>
+
+
+            Guest Capacity:     {{ properties.Guest_capacity }}<br>
+
+            Location      :           {{ properties.Location  }}<br>
+
+            Amount:              {{  properties.Amount}}</strong></br> </h5>
+        {% if user.is_employee %}
+
+              <a class="btn btn-primary" href="{% url 'property_edit' pk=properties.pk %}">Edit Property</a>
+              <a class="btn btn-danger" href="{% url 'property_delete' pk=properties.pk %}">Delete</a>
+            {% else %}
+
+
+
+            <form action="{% url "property_rent" properties.slug properties.Property_id %}" method="post">
+                <input type="hidden" name="Property_id" value="properties.Property_id">
+                <input type="hidden" name="Property_Name" value="properties.Property_Name">
+                <input type="hidden" name="Description" value="properties.Description">
+                <input type="hidden" name="Guest_capacity" value="properties.Guest_capacity">
+                <input type="hidden" name="Location" value="properties.Location">
+                <input type="hidden" name="Amount" value="properties.Amount">
+
+         {{ form }}
+                {% csrf_token %}
+         {{ Reservation_form.as_p}}
+
+
+
+
+                 <input type="submit" value="Rent">
+                 {% endif %}
+
+
+</form>
+
+
+
+
+
+       </center>
+
+        </div>
+</body>
+
+{% endfor %}
+
+{% endblock %}
+
+</html>

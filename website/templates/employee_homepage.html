@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <html>
+    <head>
+
+             <title> Park List</title>
+    </head>
+    <body>
+
+
+    <div class="row">
+        <center>
+        <h2 class="headings">Park list</h2>
+        </center>
+    </div>
+    <div>
+
+        <table class="table table-bordered table-hover custom-table" id="park-list">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Address</th>
+                <th>Attendant email</th>
+                <th>Attendant phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for Park in park %}
+
+                <tr>
+
+               {% if Park.Park_Name == park.name%} class = "selected"{% endif %}
+
+
+
+                    <td><a href="{{ Park.get_absolute_url  }}">{{ Park.Park_Name }}</a></td>
+
+                    <td>{{ Park.address }}{{ Park.City }} {{ Park.Zip_code }}</td>
+                    <td>{{ Park.Attendant_Email }} </td>
+                    <td>{{ Park.Phone }}</td>
+                    <td><a href="{% url 'empparkEdit' Park.pk %}">Edit</a><td> 
+                    <a href="{% url 'empparkDelete' Park.pk %}">Delete</a>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </body>
+    </html>
+{% endblock %}

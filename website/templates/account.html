@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="extend-form">
+    <h2 style="color:white;">Log In</h2>
+    <form style="float:left; color:black !important; padding:5px; margin-bottom:10%; background:white; border-radius:5px;border:6px black;" method="post">
+    {% csrf_token %}
+    {{ info }}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+    </form><br><br>
+</div>
+{% endblock %}

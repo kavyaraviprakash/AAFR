@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Site Metas -->
+   {% block title %}
+   <title>AAFR</title>
+   {% endblock %}
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+   <!-- Colors CSS -
+   <link rel="stylesheet" href="{% static 'website/css/colors.css' %}">
+   -->
+   <!-- ALL VERSION CSS 
+   <link rel="stylesheet" href="{% static 'website/css/versions.css' %}">
+   -->
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'website/css/responsive.css' %}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'website/css/custom.css' %}">
+   <!-- font family -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   <!-- end font family 
+   <link rel="stylesheet" href="{% static 'website/css/3dslider.css' %}" />
+   -->
+   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+   <script src="{% static 'website/js/3dslider.js' %}"></script>
+   </head>
+   <body class="game_info" data-spy="scroll" data-target=".header">
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="{% static 'website/images/loading-img.gif' %}" alt="">
+      </div>
+      <!-- END LOADER -->
+      <section id="top">
+            <div class="container">
+               <div class="header-top">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="full">
+                           <div class="logo">
+                              <a href="{% url 'home' %}"><img src="{% static 'website/images/logo.png'%}" alt="AAFR Logo" style="border: 2px black solid; width:210px;" ;/></a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="right_top_section">
+                           <!-- social icon
+                           <ul class="social-icons pull-left">
+                              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                              <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                              <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                           </ul>
+                            end social icon -->
+                           <!-- button section -->
+                           <!-- end button section -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="header-bottom">
+                  <div class="row" style="border-radius: 10%;">
+                     <div class="col-md-12">
+                        <div class="full">
+                           <div class="main-menu-section">
+                              <div class="menu">
+                                 <nav class="navbar navbar-inverse">
+                                    <div class="navbar-header">
+                                       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                                       <span class="sr-only">Toggle navigation</span>
+                                       <span class="icon-bar"></span>
+                                       <span class="icon-bar"></span>
+                                       <span class="icon-bar"></span>
+                                       </button>
+                                       <a class="navbar-brand" href="#">Menu</a>
+                                    </div>
+                                     <div class="collapse navbar-collapse js-navbar-collapse">
+                                       <ul class="nav navbar-nav">
+                                          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                                          <li><a href="{% url 'park' %}">Find a Park</a></li>
+                                          {% if not user.is_employee %}
+                                          <li><a href="{% url 'calendar' %}">Events Calendar</a></li>
+                                          <li><a href="{% url 'visitor_new' %}">Contact us</a></li>
+                                          <li><a href="{% url 'about' %}">About Us</a></li>
+                                          {% else %}
+                                          <li><a href="{% url 'empparkAdd' %}">Add Park</a></li>
+                                              <li><a href="{% url 'newproperty' %}">Add Property</a></li>
+                                               <li><a href="{% url 'calendar' %}">Events Calendar</a></li>
+                                          {% endif %}
+                                          {% if user.is_authenticated %}
+                                          <li class="dropdown mega-dropdown">
+                                             <a href="{% url 'profile' %}" class="dropdown-toggle" data-toggle="dropdown">Hello {{ user }}!</a><span class="caret"></span></a>
+                                             <ul style="height:220px;width:300px;left:70%;" class="dropdown-menu mega-dropdown-menu">
+                                                <li class="col-sm-2">
+                                                   <ul>
+                                                   <li class="dropdown-header"></li>
+                                                   <li><a style="font-weight:400;font-size: large;" href="{% url 'profile' %}" class="login">
+                                                      Profile
+                                                   </a></li>
+                                                    <li><a style="font-weight:400;font-size: large;" href="{% url 'rental_edit'  %}">
+                                                      <option>Edit Profile</option>
+                                                   </a></li>
+                                                    <li><a style="font-weight:400;font-size: large;" href="{% url 'password_change' %}">
+                                                      <option>Change Password</option>
+                                                   </a></li>
+                                                   <li><a style="font-weight:400;font-size: large;" href="{% url 'logoutuser' %}" class="login">
+                                                      Logout
+                                                   </a></li>
+                                                      <div id="menCollection" class="carousel slide" data-ride="carousel">
+                                                      </div>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                          {% else %}
+                                          <li>
+                                             <a href="{% url 'loginuser' %}">Log In</a><span class="caret"></span></a>
+                                          </li>
+                                          <li>
+                                             <a href="{% url 'signup' %}">Sign Up</a>
+                                          </li>
+                                          {% endif %}
+
+                                                   
+                                                </li>
+                                             </ul>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                    <!-- /.nav-collapse -->
+                                 </nav>
+                                 <div class="search-bar">
+                                    <div id="imaginary_container">
+                                       <br>Built for Dr Royce's Class 8210 at UNOmaha.
+                                       <!--
+                                       <div class="input-group stylish-input-group">
+                                          <input type="text" class="form-control"  placeholder="Search" >
+                                          <span class="input-group-addon">
+                                          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>  
+                                          </span>
+                                       </div>
+                                    -->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <div>
+            {% block content %}
+            {% endblock %}
+         </div>
+      <footer id="footer" class="footer" style="height:5%">
+         <div class="container" >
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="full">
+                     <div class="footer-widget">
+                        <div class="footer-logo">
+                           <a href="#"><img src="{% static 'website/images/footer-logo.png'%}" alt="#" /></a>
+                        </div>
+                        <p>Thanks for visitng our website!</p>
+                        <ul class="social-icons style-4 pull-left">
+                           <li><a class="facebook" href="https://www.facebook.com/Albuquerque-Athletic-Field-Reservation-104358335110940"><i class="fa fa-facebook"></i></a></li>
+                           <li><a class="twitter" href="https://twitter.com/FieldAthletic"><i class="fa fa-twitter"></i></a></li>
+                           <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                           <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-2">
+                  <div class="full">
+                     <div class="footer-widget">
+                        <h3>Menu</h3>
+                        <ul class="footer-menu">
+                           <li><a href="{% url 'home' %}">Home</a></li>
+                           <li><a href="{% url 'park' %}">Find a Park</a></li>
+                           <li><a href="{% url 'calendar' %}">Events Calendar</a></li>
+                           <li><a href="{% url 'visitor_new' %}">Contact us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="full">
+                     <div class="footer-widget">
+                        <h3>Contact us</h3>
+                        <ul class="address-list">
+                           <li><i class="fa fa-map-marker"></i> City of Albuquerque Parks and Recreation Department</li>
+                           <li><i class="fa fa-phone"></i> 123 456 7890</li>
+                           <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i> demo@gmail.com</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="full">
+                     <div class="contact-footer">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26115.51103676715!2d-106.6624133!3d35.0957504!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8722734b31110a4d%3A0xe16803050a8e0f9a!2sCity%20of%20Albuquerque%20Parks%20%26%20Recreation!5e0!3m2!1sen!2sus!4v1613438991620!5m2!1sen!2sus" width="600" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <a href="{% url 'home' %}" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+      <!-- ALL JS FILES -->
+      <script src="{% static 'website/js/all.js'%}"></script>
+      <!-- ALL PLUGINS -->
+      <script src="{% static 'website/js/custom.js'%}"></script>
+   </body>
+</html>

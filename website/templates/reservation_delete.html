@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+ {% load static %}
+ {% block content %}
+
+     <h1 class='headings' >Delete Reservation</h1>
+     <form method="post" class="custom-form">
+         {% csrf_token %}
+
+       <h4>Are you sure you want to delete the reservation?</h4>
+         <h5><span class="glyphicon glyphicon-warning-sign"></span> Attention !!! This action cannot be undone and you will lose the reservation!</h5>
+          <div class="buttons-container">
+       <input type="submit" class="btn btn-danger" value="Delete">
+          <a href="{% url 'profile'  %}">Cancel</a>
+         </div>
+ </form>
+     </center>
+ {% endblock %}

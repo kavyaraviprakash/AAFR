@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+ <p>
+
+     <h2 style="color:black;">Welcome {{ user }}!</h2>
+     <div class="extend-form" style="width:80%;padding-top: 0px;border-right:0;">
+             <h2 style="color:black">Your reservations:</h2>
+             <table class="table table-bordered table-hover custom-table" id="park-list">
+                 <thead>
+                     <tr>
+                         <th>
+                             Price
+                         </th>
+                         <th>
+                             Park
+                         </th>
+                         <th>
+                             Property
+                         </th>
+                         <th>
+                             Date
+                         </th>
+                         <th>
+                             Time Slot
+                         </th>
+                         <th>
+                             Team Size
+                         </th>
+                         <th>
+                             Actions
+                         </th>
+                     </tr>
+                 </thead>
+                 <tbody style="color:black">
+                     {% for res in reservations %}
+                     <tr>
+                         <td>
+                             {{res.price}}
+                         </td>
+                         <td>
+                             {{res.Park_ID}}
+                         </td>
+                         <td>
+                             {{res.Property_ID}}
+                         </td>
+                         <td>
+                             {{res.Event_Date}}
+                         </td>
+                         <td>
+                             {{res.Slot}}
+                         </td>
+                         <td>
+                             {{res.Team_Size}}
+                         </td>
+                         <td>
+                             <a href="{% url 'remove_res' res.Res_ID %}">Delete</a>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                 </tbody>
+             {{ reservations }}
+             </table>
+             <h2 style="color:black">Here is some information about you:</h2>
+             <table class="table table-bordered table-hover custom-table" style="border: 1px solid black;color:black;padding-left:10px;">
+             <tr>
+                 <th style="padding-left:10px;">
+                     ADDRESS:
+                 </th>
+                 <th style="padding-left:10px;">
+                     CITY:
+                 </th>
+                 <th style="padding-left:10px;">
+                     STATE:
+                 </th>
+                 <th style="padding-left:10px;">
+                     ZIP:
+                 </th>
+                 <th style="padding-left:10px;">
+                     Phone:
+                 </th>
+                 <th style="padding-left:10px;">
+                     STATUS:
+                 </th>
+             </tr>
+             <tr>
+                 <td>
+                     {{ user.address }}
+                 </td>
+                 <td>
+                     {{ user.city }}
+                 </td>
+                 <td>
+                     {{ user.state }}
+                 </td>
+                 <td>
+                     {{ user.zipcode }}
+                 </td>
+                 <td>
+                     {{ user.phone_number }}
+                 </td>
+                 <td>
+                     {% if user.is_renter %}Renter
+                     {% elif user.is_park_attendant %}Park Attendant
+                    {% elif user.is_employee %}Employee
+                    {% endif %}
+                </td>
+            </tr>
+            </table>
+
+             <div class="d-flex justify-content-center links">
+                 <a href="{% url 'rental_edit'  %}" class="btn brn-primary">Edit Profile</a>
+         </div><br><br>
+     </div>
+{% endblock %}

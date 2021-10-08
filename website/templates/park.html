@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="extend-form cut-right">
+        <title> Park List</title>
+    </head>
+    <body>
+
+
+    <div class="row">
+        <center>
+        <h2 class="headings">Park list</h2>
+        </center>
+    </div>
+    <div>
+
+        <table class="table table-bordered table-hover custom-table" id="park-list">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Address</th>
+                <th>Attendant email</th>
+                <th>Attendant phone</th>
+                 {% if user.is_employee %}
+                     <th>Action</th>
+                     <th>Action</th>
+
+                </tr>
+                {% else %}
+                {% endif %}
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for Park in park %}
+
+                <tr  style="color:black">
+
+                {% if Park.Park_Name == park.name%} class = "selected"{% endif %}
+
+
+
+                    <td><a href="{{ Park.get_absolute_url  }}">{{ Park.Park_Name }}</a></td>
+                    <td>{{ Park.address }}{{ Park.City }} {{ Park.Zip_code }}</td>
+                    <td>{{ Park.Attendant_Email }} </td>
+                    <td>{{ Park.Phone }}</td>
+                  {% if user.is_employee %}
+                 <td><a href="{% url 'empparkEdit' Park.pk %}">Edit</a><td>
+                    <a href="{% url 'empparkDelete' Park.pk %}">Delete</a>
+                </tr>
+                {% else %}
+                {% endif %}
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+{% endblock %}

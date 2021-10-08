@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+{% block content %}
+    {% for Properties in properties %}
+<center>
+    
+    {% if user.is_authenticated %}
+    <a href="{{ Properties.get_absolute_url }}">
+    <img src="{% if Properties.image %}{{ Properties.image.url }}"width="400" height="300"{% else %}{% static "website/images/no_image.png" %}{% endif %}"><br>
+    </a>
+    {% else %}
+    <a href="{% url 'loginuser' %}">
+      <img src="{% if Properties.image %}{{ Properties.image.url }}"width="400" height="300"{% else %}{% static "website/images/no_image.png" %}{% endif %}"><br>
+    </a>
+    {% endif %}
+
+
+    {% if user.is_authenticated %}
+    <a href="{{ Properties.get_absolute_url }}">{{ Properties.Property_id }}-{{ Properties.Property_Name }}</a>
+    {% else %}
+    <a href="{% url 'loginuser' %}">{{ Properties.Property_id }}-{{ Properties.Property_Name }}</a>
+    {% endif %}
+      </div>
+
+</center>
+    {% endfor %}
+{% endblock %}

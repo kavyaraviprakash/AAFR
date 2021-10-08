@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <section id="contant" class="contant main-heading" style="padding-bottom:0;margin-bottom:-1px;position:relative;z-index:1;">
+         <div class="aboutus">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                     <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="full">
+                           <h3>Albuquerque Athletic Field Reservation System</h3>
+                           <p>AAFR was established in 1972, Visiting AAFR allows you to experience the authentic Southwest. As one of the oldest cities in the United States, AAFR boasts a unique multicultural history and heritage. All forms of sports are encouraged here with all facilities. You will always know you're someplace special, whether you're playing at one of our soccer field, enjoying our world-class visual and performing arts, or playing on the best golf courses in the AAFR. Nowhere is the confluence of past and present more dramatic than here in Albuquerque, where the modern city skyline is set against a backdrop of the stunning Sandia Mountains and an endless, timeless blue sky.
+                           </p>
+                           <ul class="icon-list">
+                              <li><i class="fa fa-angle-right"></i> We offer all facilities for Basketball court, Soccer and Golf courts.</li>
+                              <li><i class="fa fa-angle-right"></i> Training sessions will be provided for every team enrolled with us.</li>
+                              <li><i class="fa fa-angle-right"></i> Pavilion Facilities are provided here.</li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-5 col-sm-5 col-xs-12">
+                        <img class="img-responsive" src="{% static 'website/images/img-07.jpg' %}" alt="#" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="dark-section" style="background:url(images/walle.jpg)">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                     <div class="heading-main">
+                        <h2>Our Testimonials</h2>
+                     </div>
+                     <div class="testimonial-slider">
+                        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                           <!-- Carousel Slides / Quotes -->
+                           <div class="carousel-inner text-center">
+                              <!-- Quote 1 -->
+                              <div class="item active">
+                                 <blockquote>
+                                    <div class="row">
+                                       <div class="col-sm-10 col-sm-offset-1">
+                                          <p>“Number one is just to gain a passion for running. To love the morning, to love the trail, to love the pace on the track. And if some kid gets really good at it, that’s cool too.”</p>
+                                          <small>Pat Tyson</small>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                              <!-- Quote 2 -->
+                              <div class="item">
+                                 <blockquote>
+                                    <div class="row">
+                                       <div class="col-sm-10 col-sm-offset-1">
+                                          <p>“Most people give up just when they’re about to achieve success. They quit on the one yard line. They give up at the last minute of the game one foot from a winning touchdown.” </p>
+                                          <small>Ross Perot</small>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                              <!-- Quote 3 -->
+                              <div class="item">
+                                 <blockquote>
+                                    <div class="row">
+                                       <div class="col-sm-10 col-sm-offset-1">
+                                          <p>“You have to do something in your life that is honorable and not cowardly if you are to live in peace with yourself.”</p>
+                                          <small>Larry Brown</small>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </div>
+                           </div>
+                           <!-- Bottom Carousel Indicators -->
+                           <ol class="carousel-indicators">
+                              <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg" alt="">
+                              </li>
+                              <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="">
+                              </li>
+                              <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
+                              </li>
+                           </ol>
+                           <!-- Carousel Buttons Next/Prev -->
+                           <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                           <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+{% endblock %}

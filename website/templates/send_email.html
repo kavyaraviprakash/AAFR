@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static %}
+
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} delete-confirmation{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+
+&rsaquo; <span>Send email</span>
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block title %}Send Email{% endblock %}
+
+  <p>{% blocktrans %}Write your message here{% endblocktrans %}</p>
+     <br/><br/>
+  <div class="form-group">
+    <form method="POST" action="{% url 'email' %}">{% csrf_token %}
+
+        {{ form.as_p }}
+
+  <p><input type="submit" value="Send Email"></p>
+  </form></div>
+{% endblock %}

@@ -1,0 +1,24 @@
+ {% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Checkout
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+<form action="." method="post" class="contact_form">
+    {{ form.as_p }}
+
+
+
+
+        <input type="submit" value="Checkout"></p>
+    {% csrf_token %}
+  </form>
+
+{% endblock %}

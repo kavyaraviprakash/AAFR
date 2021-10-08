@@ -1,0 +1,75 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="extend-form cut-right">
+        <title> Review List</title>
+    </head>
+    <body>
+
+
+    <div class="row">
+        <center>
+        <h2 class="headings">Review List</h2>
+        </center>
+    </div>
+    <div>
+
+        <table class="table table-bordered table-hover custom-table" id="park-list">
+            <thead>
+            <tr>
+
+                <th>Renter</th>
+                <th>Property</th>
+                <th>Penalty Amount</th>
+                <th>Picture</th>
+
+                <th>Status</th>
+
+
+
+
+
+                </tr>
+
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for Review in review %}
+
+                <tr  style="color:black">
+
+
+
+
+
+                    <td>{{ Review.renter }}</td>
+                    <td>{{ Review.Property_ID }}</td>
+                    <td>{{ Review.penalty_amount }} </td>
+
+                    <td><img src="{% if Review.uploaded_picture %}{{ Review.uploaded_picture.url }}"width="100" height="100"{% else %}{% static "website/images/no_image.png" %}{% endif %}"></td>
+
+                    <td>{{ Review.status }}</td>
+
+
+                 </tr>
+
+
+
+
+
+
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+{% endblock %}

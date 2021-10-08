@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Pay by credit card{% endblock %}
+
+{% block content %}
+
+{% for properties in properties %}
+<h5> <br><strong>ID: {{ properties.Property_id}}<br>
+    Name    :          {{ properties.Property_Name}}<br>
+
+
+
+Description     :          {{ properties.Description }}<br>
+
+
+Guest Capacity:     {{ properties.Guest_capacity }}<br>
+
+Location      :           {{ properties.Location  }}<br>
+
+Amount:              {{  properties.Amount}}</strong></br> </h5>
+{% endfor %}
+{% endblock %}
+
+</html>
+
+
